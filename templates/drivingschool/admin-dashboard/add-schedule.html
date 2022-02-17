@@ -1,0 +1,67 @@
+{% extends 'drivingschool\admin-dashboard\main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+    <div class="d-flex justify-content-between align-items-end">
+        <div class="">
+            <h2>
+                <span><i class="bi bi-journals"></i></span>
+                Add Schedule
+            </h2>
+            
+        </div>
+    
+        <!-- breadcrumbs -->
+        <div class="">
+            <ol class="breadcrumb float-sm-right">
+               <li class="breadcrumb-item"><a href="/">Home</a></li>
+               <li class="breadcrumb-item active">Add-Schedule</li>
+            </ol>
+         </div>
+         <!-- breadcrumbs -->
+    </div><hr>
+    
+    <div class="card shadow-lg">
+        <div class="card-header text-center" style="background-color: #a1642efd; color: #fff;">
+          <h6 class="fw-bold">Schedules Information</h6>
+        </div>
+        <div class="card-body">
+            <i class="bi bi-journals"></i> Schedule Information<hr>
+            <form class="row">
+                <div class="col-6">
+                    <h6>Schedule Code</h6>
+                    <input type="text" class="form-control" disabled placeholder="SCHD-123">
+                </div>
+                <div class="col-6">
+                    <h6>Date</h6>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-6 mt-3">
+                    <h6>Instructor</h6>
+                    <select class="form-select">
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Doe">Jane Doe</option>
+                    </select>
+                </div>
+                <div class="col-6 mt-3">
+                    <h6>Number of Slots</h6>
+                    <input type="text" class="form-control" placeholder="slots">
+                </div>
+                <div class="col-6 mt-3">
+                    <h6>Amount</h6>
+                    <input type="text" class="form-control" placeholder="amount">
+                </div>
+                <div class="col-6 mt-3">
+                    <h6>Remarks</h6>
+                    <textarea class="form-control" placeholder="remarks"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-dark">Save</a>
+        </div>
+      </div>
+</div>
+{% endblock %}

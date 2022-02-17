@@ -1,0 +1,76 @@
+body{
+    background-color: #bbbec2;
+}
+
+
+.card-header{
+    background-color: #a1642efd; 
+    color: #fff;
+}
+
+.content{
+    margin-top: 100px;
+}
+
+@media (min-width: 992px){
+    .content{
+        margin-left: 150px;
+        margin-right: -40px;
+        
+        
+    }
+}
+
+
+.icon-img{
+    font-size: 70px;
+}
+.card1{
+    background-color: #a8a232;
+}
+.c-footer1{
+    background-color: #8b832a;
+    color: #ebeff5;
+    
+}
+
+.card2{
+    background-color: #32a889;
+}
+
+.c-footer2{
+    background-color: #158164;
+    color: #ebeff5;
+}
+
+.card3{
+    background-color: #a85032;
+    
+}
+
+.c-footer3{
+    background-color: #833820;
+    color: #ebeff5;
+}
+
+.btn-link{
+    text-decoration: none;
+    color: #ebeff5;
+}
+
+#students{
+    cursor: pointer;
+    
+}
+
+
+/* -----student---- */
+
+
+
+
+/* label{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    
+} */

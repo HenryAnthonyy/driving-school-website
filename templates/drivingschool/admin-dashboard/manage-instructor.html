@@ -1,0 +1,136 @@
+{% extends 'drivingschool\admin-dashboard\main.html' %}
+
+{% load static %}
+{% block content%}
+
+<div class="content">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-end">
+                <div class="">
+                    <h2>
+                        <i class="bi bi-person-fill"></i></i></span>
+                        Instructors List
+                    </h2>
+                    
+                </div>
+    
+                <!-- breadcrumbs -->
+                <div class="">
+                    <ol class="breadcrumb float-sm-right">
+                       <li class="breadcrumb-item"><a href="/">Home</a></li>
+                       <li class="breadcrumb-item active">Instructors</li>
+                    </ol>
+                 </div>
+                 <!-- breadcrumbs -->
+            </div><hr>
+        </div>
+    </section>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-center">Instructor List</div>
+                <div class="card-body">
+                    <div class="table-responsive">   
+                        <table class="table table-striped table-bordered" id="myTable">
+                            <thead>
+                                <tr>
+                                <th scope="col">Profile</th>
+                                <th scope="col">Instructor Info</th>
+                                <th scope="col">Account</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Birthday</th>
+                                <th scope="col">Experience</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></td>
+                                <td>
+                                    <p class="info">Name: <b>John Doe</b></p>
+                                    <p class="info"><small>Contact #: <b>09874325162</b></small></p>
+                                    <p class="info"><small>Address: <b>Pasig</b></small></p>
+                                    <p class="info"><small>Email: <b>john@gmail.com</b></small></p>
+                                </td>
+                                <td>
+                                    <p><small>Username: <b>John</b></small></p>
+                                    <p><small>Password: <b>********</b></small></p>
+                                </td>
+                                <td>Male</td>
+                                <td>2000-01-01</td>
+                                <td>Passed</td>
+                                <td>*****</td>
+                                <td>
+                                    <div class="d-flex justify-content-end">
+                                        <div style="margin: 3px;">
+                                            <button class="btn btn-success">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </button>
+                
+                                        </div>
+                                        <div style="margin: 3px;">
+                                            <button class="btn btn-danger">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></td>
+                                <td>
+                                    <p class="info">Name: <b>Jane Doe</b></p>
+                                    <p class="info"><small>Contact #: <b>09874325162</b></small></p>
+                                    <p class="info"><small>Address: <b>Pasig</b></small></p>
+                                    <p class="info"><small>Email: <b>jane@gmail.com</b></small></p>
+                                </td>
+                                <td>
+                                    <p><small>Username: <b>Jane</b></small></p>
+                                    <p><small>Password: <b>********</b></small></p>
+                                </td>
+                                <td>Female</td>
+                                <td>1999-01-01</td>
+                                <td>Passed</td>
+                                <td>**some-info**</td>
+                                <td>
+                                    <div class="d-flex justify-content-end">
+                                        <div style="margin: 3px;">
+                                            <button class="btn btn-success">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </button>
+                
+                                        </div>
+                                        <div style="margin: 3px;">
+                                            <button class="btn btn-danger">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    
+                                    
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+    
+    
+
+
+{% endblock %}

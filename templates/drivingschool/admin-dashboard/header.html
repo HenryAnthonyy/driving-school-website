@@ -1,0 +1,359 @@
+{% load static %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+  <div class="container-fluid">
+    <!-- offcanvas-trigger -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- offcanvas-trigger -->
+    <a class="navbar-brand fw-bold" href="/">
+      <span>
+        <img src="{% static 'images/brand.png' %}" alt="" style="width: 150px">
+      </span>
+      
+    </a>
+    <ul class="nav justify-content-end align-items-center">
+      <a href="#" style="color: grey">
+        <span style="font-size: 20px; margin-right: 10px">
+          <i class="bi bi-bell">
+          </i>
+        </span>
+      </a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <img src="{% static 'images/avatar.jpg'%}" alt="" style="height: 34px; width: 34px; border-radius: 50%;">
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <a class="dropdown-toggle me-3" href="#"  id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: grey;">
+            <strong>Admin</strong>
+          </a>
+        
+          <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-person-fill"></i></span> Profile</a></li>
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-gear"></i></span> Settings</a></li>
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-box-arrow-right"></i></span> Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- offcanvas -->
+
+<style>
+  :root{
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 0px;
+
+  }
+
+
+  .sidebar-nav{
+      width: var(--offcanvas-width);
+  }
+
+  .sidebar-link{
+    display: flex;
+    align-items: center
+  }
+
+  .sidebar-link .dropdown-icon{
+    display: inline-flex;
+    transition: all ease 0.2s;
+  }
+
+  .sidebar-link[aria-expanded="true"] .dropdown-icon{
+    transform: rotate(180deg);
+  }
+
+  .nav-link{
+    margin: 0;
+  }
+  
+  .offcanvas-body::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  .offcanvas-body::-webkit-scrollbar-track{
+    background: #fff;
+  }
+  .offcanvas-body::-webkit-scrollbar-thumb{
+    background:  #a8a232;
+  }
+  body::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  body::-webkit-scrollbar-track{
+    background: #fff;
+  }
+  body::-webkit-scrollbar-thumb{
+    background: gray;
+  }
+  
+  .offcanvas{
+    background-color: #275547;
+  }
+
+  button{
+    position: relative;
+    z-index: 1;
+    border: none;
+    
+  }
+
+  button::after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+  }
+
+  .sidebtn{
+    background-color: #04382b;
+    color: #fff;
+    
+  }
+
+  .sidebtn::after{
+    height: 100%;
+    left: -35%;
+    top: 0;
+    transform: skew(50deg);
+    transform-origin: top left;
+    transition-duration: 0.6s;
+    
+    width: 0;
+  }
+
+  .sidebtn:hover::after{
+    
+    width: 150%;
+    color: #000;
+    background-color: #fff;
+  }
+
+  @media (min-width: 992px){
+      .sidebar-nav{
+          transform: none;
+          visibility: visible !important;
+          top: var(--topNavbarHeight);
+          transition: all ease 1s;
+      }
+
+      body{
+        overflow: auto !important; /* this is probably not necessary*/
+      }
+      
+      .btn-close{
+        display: none;
+      }
+
+      
+      
+  }
+</style>
+
+
+<div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-backdrop="false">
+  <div class="offcanvas-body">
+    <div class="offcanvas-header">
+      <a class="navbar-brand" href="/">
+        <span>
+          <img src="{% static 'images/logo3.png'%}" alt="">
+        </span>
+      </a>
+      
+      <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <nav class="navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="" aria-current="page" href="/">
+            <button class="w-100 btn mb-3 sidebtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2"><i class="bi bi-speedometer"></i></span>
+                Dashboard
+              </div>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/student-list">
+            <button class="w-100 btn mb-3 sidebtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2"><i class="bi bi-people-fill"></i></span>
+                Students
+              </div>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <button class="w-100 btn sidebtn" type="button">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2">
+                  <i class="bi bi-person-fill"></i>
+                </span>
+                Instructors
+                <span class="dropdown-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </div>
+            </button>
+          </a>
+          <div class="collapse" id="collapseExample">
+            <div>
+              <ul class="navbar-nav ps-3" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="nav-link" href="/add-instructor">
+                    <button class="btn sidebtn w-100">
+                      <div class="d-flex align-items-start">
+                        <span class="me-2">
+                          <i class="bi bi-plus-square-fill"></i></span>
+                        Add Instructor
+                      </div>
+                    </button>
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link" href="/manage-instructor">
+                    <button class="btn sidebtn w-100">
+                      <div class="d-flex align-items-start">
+                        <span class="me-2">
+                          <i class="bi bi-journals"></i></span>
+                        Manage Instructor
+                      </div>
+                    </button>
+                </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        
+        </li>
+ 
+        <li class="nav-item">
+          <a class="nav-link sidebar-link" data-bs-toggle="collapse" href="#scheduleCollapse" role="button" aria-expanded="false" aria-controls="scheduleCollapse">
+            <button class="w-100 btn sidebtn" type="button">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2">
+                  <i class="bi bi-calendar-check-fill"></i>
+                </span>
+                Schedules
+                <span class="dropdown-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </div>
+            </button>
+          </a>
+          <div class="collapse" id="scheduleCollapse">
+            <div>
+              <ul class="navbar-nav ps-3" aria-labelledby="navbarDropdown">
+                <li><a class="nav-link" href="/add-schedule">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-plus-square-fill"></i></span>
+                      Add Schedules
+                    </div>
+                  </button></a></li>
+                <li><a class="nav-link" href="/manage-schedule">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-journals"></i></span>
+                      Manage Schedules
+                    </div>
+                  </button></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link sidebar-link" data-bs-toggle="collapse" href="#enrollCollapse" role="button" aria-expanded="false" aria-controls="enrollCollapse">
+            <button class="w-100 btn sidebtn" type="button">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2">
+                  <i class="bi bi-clipboard2-check-fill"></i>
+                </span>
+                Enrollments
+                <span class="dropdown-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </div>
+            </button>
+          </a>
+          <div class="collapse" id="enrollCollapse">
+            <div>
+              <ul class="navbar-nav ps-3" aria-labelledby="navbarDropdown">
+                <li><a class="nav-link" href="/add-enroll">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-plus-square-fill"></i></span>
+                      Add Enrollment
+                    </div>
+                  </button></a></li>
+                <li><a class="nav-link" href="/manage-enroll">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-journals"></i></span>
+                      Manage Enrollment
+                    </div>
+                  </button></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidebar-link" data-bs-toggle="collapse" href="#paymentCollapse" role="button" aria-expanded="false" aria-controls="paymentCollapse">
+            <button class="w-100 btn sidebtn" type="button">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2">
+                  <i class="bi bi-cash-stack"></i>
+                </span>
+                Payments
+                <span class="dropdown-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </div>
+            </button>
+          </a>
+          <div class="collapse" id="paymentCollapse">
+            <div>
+              <ul class="navbar-nav ps-3" aria-labelledby="navbarDropdown">
+                <li><a class="nav-link" href="/add-payment">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-plus-square-fill"></i></span>
+                      Add Payment
+                    </div>
+                  </button></a></li>
+                <li><a class="nav-link" href="/manage-payment">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-journals"></i></span>
+                      Manage Payment
+                    </div>
+                  </button></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div>

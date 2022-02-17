@@ -1,0 +1,211 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+  <div class="container-fluid">
+    <!-- offcanvas-trigger -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- offcanvas-trigger -->
+    <a class="navbar-brand fw-bold" href="/instructor-dashboard">
+      <span>
+        <img src="{% static 'images/brand.png' %}" alt="" style="width: 150px">
+      </span>
+      
+    </a>
+    <ul class="nav justify-content-end align-items-center">
+      <a href="#" style="color: grey">
+        <span style="font-size: 20px; margin-right: 10px">
+          <i class="bi bi-bell">
+          </i>
+        </span>
+      </a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <img src="{% static 'images/avatar.jpg'%}" alt="" style="height: 34px; width: 34px; border-radius: 50%;">
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <a class="dropdown-toggle me-3" href="#"  id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: grey;">
+            <strong>Instructor</strong>
+          </a>
+        
+          <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-person-fill"></i></span> Profile</a></li>
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-gear"></i></span> Settings</a></li>
+            <li><a class="dropdown-item" href="#"><span><i class="bi bi-box-arrow-right"></i></span> Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  :root{
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 0px;
+
+  }
+
+
+  .sidebar-nav{
+      width: var(--offcanvas-width);
+  }
+
+  .sidebar-link{
+    display: flex;
+    align-items: center
+  }
+
+  .sidebar-link .dropdown-icon{
+    display: inline-flex;
+    transition: all ease 0.2s;
+  }
+
+  .sidebar-link[aria-expanded="true"] .dropdown-icon{
+    transform: rotate(180deg);
+  }
+
+  .nav-link{
+    margin: 0;
+  }
+  
+  .offcanvas-body::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  .offcanvas-body::-webkit-scrollbar-track{
+    background: #fff;
+  }
+  .offcanvas-body::-webkit-scrollbar-thumb{
+    background:  #a8a232;
+  }
+  body::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  body::-webkit-scrollbar-track{
+    background: #fff;
+  }
+  body::-webkit-scrollbar-thumb{
+    background: gray;
+  }
+  
+  .offcanvas{
+    background-color: #275547;
+  }
+
+  .sidebtn{
+    background-color: #04382b;
+    color: #fff;
+  }
+
+  .sidebtn:hover{
+    color: #000;
+    background-color: #fff;
+  }
+
+  @media (min-width: 992px){
+      .sidebar-nav{
+          transform: none;
+          visibility: visible !important;
+          top: var(--topNavbarHeight);
+          transition: all ease 1s;
+      }
+
+      body{
+        overflow: auto !important; /* this is probably not necessary*/
+      }
+      
+      .btn-close{
+        display: none;
+      }
+
+      
+      
+  }
+</style>
+
+<div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-backdrop="false">
+  <div class="offcanvas-body">
+    <div class="offcanvas-header">
+      <a class="navbar-brand" href="/">
+        <span>
+          <img src="{% static 'images/logo3.png'%}" alt="">
+        </span>
+      </a>
+      
+      <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <nav class="navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="" aria-current="page" href="/instructor-dashboard">
+            <button class="w-100 btn mb-3 sidebtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2"><i class="bi bi-speedometer"></i></span>
+                Dashboard
+              </div>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/instructor-master-list">
+            <button class="w-100 btn mb-3 sidebtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2"><i class="bi bi-people-fill"></i></span>
+                Master List
+              </div>
+            </button>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link sidebar-link" data-bs-toggle="collapse" href="#scheduleCollapse" role="button" aria-expanded="false" aria-controls="scheduleCollapse">
+            <button class="w-100 btn sidebtn" type="button">
+              <div class="d-flex align-items-start ms-2">
+                <span class="me-2">
+                  <i class="bi bi-calendar-check-fill"></i>
+                </span>
+                Reports
+                <span class="dropdown-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </div>
+            </button>
+          </a>
+          <div class="collapse" id="scheduleCollapse">
+            <div>
+              <ul class="navbar-nav ps-3" aria-labelledby="navbarDropdown">
+                <li><a class="nav-link" href="/instructor-add-report">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-plus-square-fill"></i></span>
+                      Add reports
+                    </div>
+                  </button></a></li>
+                <li><a class="nav-link" href="/instructor-manage-report">
+                  <button class="btn sidebtn w-100">
+                    <div class="d-flex align-items-start">
+                      <span class="me-2">
+                        <i class="bi bi-journals"></i></span>
+                      Manage reports
+                    </div>
+                  </button></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+ 
+        
+        
+        
+        
+      </ul>
+    </nav>
+
+  </div>
+</div>
