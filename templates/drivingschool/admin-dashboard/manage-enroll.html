@@ -45,59 +45,32 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td scope="row">SCHD-123</td>
-                                <td>
-                                   Student names
-                                </td>
-                                <td>
-                                    John Doe
-                                </td>
-                                <td>Remarks</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td scope="row">SCHD-456</td>
-                                <td>
-                                   Student names
-                                </td>
-                                <td>
-                                    Jane Doe
-                                </td>
-                                <td>Remarks</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
                               
+                                {% for enrollment in enrollments %}
+                                <tr>
+                                    <td scope="row">{{enrollment.schedule_code}}</td>
+                                    <td>{{enrollment.student}}</td>
+                                    <td>{{enrollment.instructor}}</td>
+                                    <td>{{enrollment.remarks}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-success">
+                                                    <i class="bi bi-pen-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                        </div>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+
                             </tbody>
                         </table>
             

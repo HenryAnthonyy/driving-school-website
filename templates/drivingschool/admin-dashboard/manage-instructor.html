@@ -47,73 +47,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></td>
-                                <td>
-                                    <p class="info">Name: <b>John Doe</b></p>
-                                    <p class="info"><small>Contact #: <b>09874325162</b></small></p>
-                                    <p class="info"><small>Address: <b>Pasig</b></small></p>
-                                    <p class="info"><small>Email: <b>john@gmail.com</b></small></p>
-                                </td>
-                                <td>
-                                    <p><small>Username: <b>John</b></small></p>
-                                    <p><small>Password: <b>********</b></small></p>
-                                </td>
-                                <td>Male</td>
-                                <td>2000-01-01</td>
-                                <td>Passed</td>
-                                <td>*****</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></td>
-                                <td>
-                                    <p class="info">Name: <b>Jane Doe</b></p>
-                                    <p class="info"><small>Contact #: <b>09874325162</b></small></p>
-                                    <p class="info"><small>Address: <b>Pasig</b></small></p>
-                                    <p class="info"><small>Email: <b>jane@gmail.com</b></small></p>
-                                </td>
-                                <td>
-                                    <p><small>Username: <b>Jane</b></small></p>
-                                    <p><small>Password: <b>********</b></small></p>
-                                </td>
-                                <td>Female</td>
-                                <td>1999-01-01</td>
-                                <td>Passed</td>
-                                <td>**some-info**</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
                                 
+                                {% for instructor in instructors %}
+                                <tr>
+                                    <td scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></td>
+                                    <td>
+                                        <p class="info">Name: <b>{{instructor.name}}</b></p>
+                                        <p class="info"><small>Contact #: <b>{{instructor.contact}}</b></small></p>
+                                        <p class="info"><small>Address: <b>{{instructor.address}}</b></small></p>
+                                        <p class="info"><small>Email: <b>{{instructor.email}}</b></small></p>
+                                    </td>
+                                    <td>
+                                        <p><small>Username: <b>{{instructor.username}}</b></small></p>
+                                        <p><small>Password: <b>********</b></small></p>
+                                    </td>
+                                    <td>{{instructor.gender}}</td>
+                                    <td>{{instructor.birthday}}</td>
+                                    <td>{{instructor.experience}}</td>
+                                    <td>{{instructor.status}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-success">
+                                                    <i class="bi bi-pen-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                {% endfor %}
+
                             </tbody>
                         </table>
                     

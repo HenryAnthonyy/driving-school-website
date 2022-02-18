@@ -46,61 +46,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td scope="row">REF-123</td>
-                                <td>
-                                    Lubinda Maambo
-                                </td>
-                                <td>5,000</td>
-                                <td>
-                                    01-01-2022
-                                </td>
-                                <td>Remarks</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td scope="row">REF-456</td>
-                                <td>
-                                    Charinga Jabulani
-                                </td>
-                                <td>4,500</td>
-                                <td>
-                                    01-01-2022
-                                </td>
-                                <td>Remarks</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
                                 
+                                {% for payment in payments %}
+                                <tr>
+                                    <td scope="row">{{payment.payment_code}}</td>
+                                    <td>
+                                        {{payment.student}}
+                                    </td>
+                                    <td>{{payment.price_paid}}</td>
+                                    <td>
+                                        {{payment.payment_date}}
+                                    </td>
+                                    <td>{{payment.remarks}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-success">
+                                                    <i class="bi bi-pen-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                {% endfor %}
+
                             </tbody>
                         </table>
             

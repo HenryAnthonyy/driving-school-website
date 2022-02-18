@@ -48,78 +48,42 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></th>
-                                <td>Mark</td>
-                                <td>Male</td>
-                                <td>2000-01-01</td>
-                                <td>**some-info</td>
-                                <td>**some-info</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
+                                {% for student in students %}
+                                <tr>
+                                    <th scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></th>
+                                      
+                                    <td>
+                                        <p class="info">Name: <b>{{student.name}}</b></p>
+                                        <p class="info"><small>Contact #: <b>{{student.contact}}</b></small></p>
+                                        <p class="info"><small>Address: <b>{{student.address}}</b></small></p>
+                                        <p class="info"><small>Email: <b>{{student.email}}</b></small></p>
+                                    </td>
+    
+                                    <td>{{student.gender}}</td>
+                                    <td>{{student.birthday}}</td>
+                                    <td>{{student.status}}</td>
+                                    <td>
+                                        <p><small>Username: <b>{{student.username}}</b></small></p>
+                                        <p><small>Password: <b></b>****</small></p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-success">
+                                                    <i class="bi bi-pen-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                    
+                                            </div>
                                         </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></th>
-                                <td>James</td>
-                                <td>Male</td>
-                                <td>1999-01-01</td>
-                                <td>**some-info</td>
-                                <td>**some-info</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><img src="{% static 'images/blank-head-pic.jpg'%}" alt="" style="height: 100px; width: 100px;"></th>
-                                <td>Sarah</td>
-                                <td>Female</td>
-                                <td>2000-01-01</td>
-                                <td>**some-info</td>
-                                <td>**some-info</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
             

@@ -40,67 +40,39 @@
                                 <th scope="col">Code#</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">instructor</th>
+                                <th scope="col">Course</th>
                                 <th scope="col">Slots</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td scope="row">SCHD-123</td>
-                                <td>
-                                   01-01-2022
-                                </td>
-                                <td>
-                                    John Doe
-                                </td>
-                                <td>10</td>
-                                <td>5,000</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
+                                {% for schedule in schedules %}
+                                <tr>
+                                    <td scope="row">{{schedule.schedule_code}}</td>
+                                    <td>{{schedule.schedule_date}}</td>
+                                    <td>{{schedule.instructor}}</td>
+                                    <td>{{schedule.course}}</td>
+                                    <td>{{schedule.slots}}</td>
+                                    <td>{{schedule.price}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-success">
+                                                    <i class="bi bi-pen-fill"></i>
+                                                </button>
+                    
+                                            </div>
+                                            <div style="margin: 3px;">
+                                                <button class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                    
+                                            </div>
                                         </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td scope="row">SCHD-456</td>
-                                <td>
-                                   01-02-2022
-                                </td>
-                                <td>
-                                    Jane Doe
-                                </td>
-                                <td>5</td>
-                                <td>4,500</td>
-                                <td>
-                                    <div class="d-flex justify-content-end">
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-success">
-                                                <i class="bi bi-pen-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                        <div style="margin: 3px;">
-                                            <button class="btn btn-danger">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                
-                                        </div>
-                                    </div>
-                                </td>
-                              </tr>
-                              
+                                    </td>
+                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
             
