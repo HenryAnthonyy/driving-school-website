@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import *
 from django.db.models import Sum
 
@@ -15,7 +15,7 @@ def DashboardPage(request):
 
     #calculating the total income, here use aggregation and sum from django.db.models import
     income = payments.aggregate(Sum('price_paid'))['price_paid__sum']
-    
+
     mydict = {'instructors': total_instructors, 'students': total_students, 'total_income':income}
     return render(request, 'drivingschool/admin-dashboard/dashboard.html', mydict)
 
@@ -31,7 +31,38 @@ def manageInstructorPage(request):
     return render(request, 'drivingschool/admin-dashboard/manage-instructor.html', {'instructors':instructors})
 
 def addInstructorPage(request):
-    return render(request, 'drivingschool/admin-dashboard/add-instructor.html')
+
+    if request.method == 'GET':
+        return render(request, 'drivingschool/admin-dashboard/add-instructor.html')
+
+    elif request.method == 'POST':
+        fname = request.POST.get('fname')
+        lname = request.POST.get('lname')
+        gender = request.POST.get('gender')
+        birthday = request.POST.get('birthday')
+        contact = request.POST.get('contact')
+        email = request.POST.get('email')
+        experience = request.POST.get('experience')
+        address = request.POST.get('address')
+        username = request.POST.get('username')
+
+        registry = instructor(
+            fname = fname,
+            lname = lname,
+            gender = gender,
+            birthday = birthday,
+            contact = contact,
+            email = email,
+            experience =experience,
+            address = address,
+            username = username,
+        )
+        registry.save()
+
+        return redirect('add-instructor')
+
+
+
 
 def addSchedulePage(request):
     return render(request, 'drivingschool/admin-dashboard/add-schedule.html')
