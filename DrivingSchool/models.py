@@ -23,7 +23,7 @@ class instructor(models.Model):
     birthday = models.DateField(max_length=100, null = True)
     experience = models.CharField(max_length=100, null = True)
     date_created = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=100, null = True, choices = STATUS)
+    status = models.CharField(max_length=100, null = True, choices = STATUS, default='Active')
 
     def __str__(self):
         return self.name
@@ -83,7 +83,7 @@ class enrollment(models.Model):
 
 
     def __str__(self):
-        return self.student.name
+        return f"{self.student.name } {self.schedule_code.schedule_code}"
 
 class payment(models.Model):
 

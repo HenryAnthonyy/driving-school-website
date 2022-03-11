@@ -28,34 +28,33 @@
         </div>
         <div class="card-body">
             <span><i class="bi bi-cash-coin"></i></span> Payment Information<hr>
-            <form class="row">
+            <form class="row" method="POST" id="paymentform">
+
+                {% csrf_token %}
                 <div class="col-6">
-                    <h6>Reference Code</h6>
-                    <input type="text" class="form-control" disabled placeholder="REF-123">
+                    <h6>{{form.payment_code.label}}</h6>
+                    {{form.payment_code}}
                 </div>
                 <div class="col-6">
-                    <h6>Student</h6>
-                    <select class="form-select">
-                        <option value="John Doe">John Doe</option>
-                        <option value="Jane Doe">Jane Doe</option>
-                    </select>
+                    <h6>{{form.student.label}}</h6>
+                    {{form.student}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Amount</h6>
-                    <input type="text" class="form-control">
+                    <h6>{{form.price_paid.label}}</h6> 
+                   {{form.price_paid}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Date of Payment</h6>
-                    <input type="date" class="form-control">
+                    <h6>{{form.payment_date.label}}</h6>
+                    {{form.payment_date}}
                 </div>
                 <div class="col mt-3">
-                    <h6>Remarks</h6>
-                    <textarea class="form-control" placeholder="remarks"></textarea>
+                    <h6>{{form.remarks.label}}</h6>
+                    {{form.remarks}}
                 </div>
             </form>
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-dark">Save</a>
+            <button class="btn btn-dark" type="submit" form="paymentform">Save</button>
         </div>
       </div>
 </div>

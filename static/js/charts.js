@@ -5,7 +5,7 @@ window.onload = function () {
         animationDuration: 6000,
         theme: "light2",
 		title:{
-			text: "Monthly Sales"              
+			text: "Monthly Enrollments"           
 		},
         axisY: {
             title: "Income"

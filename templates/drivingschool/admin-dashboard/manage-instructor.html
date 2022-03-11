@@ -68,20 +68,24 @@
                                     <td>
                                         <div class="d-flex justify-content-end">
                                             <div style="margin: 3px;">
-                                                <button class="btn btn-success">
+                                                <a href="{% url 'update-instructor' instructor.id %}" class="btn btn-success">
                                                     <i class="bi bi-pen-fill"></i>
-                                                </button>
+                                                </a>
                     
                                             </div>
                                             <div style="margin: 3px;">
-                                                <button class="btn btn-danger">
-                                                    <i class="bi bi-trash-fill"></i>
-                                                </button>
+                                                <form action="{% url 'delete-instructor' instructor.id %}" method="POST">
+                                                        {% csrf_token %}    
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                
+                                                </form>
                     
                                             </div>
                                         </div>
                                     </td>
-                                    </tr>
+                                </tr>
                                 {% endfor %}
 
                             </tbody>

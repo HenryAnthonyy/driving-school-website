@@ -28,34 +28,30 @@
         </div>
         <div class="card-body">
             <i class="bi bi-stickies-fill"></i> Enrollment Information<hr>
-            <form class="row">
+            <form class="row" method="POST" id="enrollform">
+
+                {% csrf_token %}
                 <div class="col-6">
-                    <h6>Schedule Code</h6>
-                    <input type="text" class="form-control" disabled placeholder="SCHD-123">
+                    <h6>{{form.schedule_code.label}}</h6>
+                    {{form.schedule_code}}
                 </div>
                 <div class="col-6">
-                    <h6>Student</h6>
-                    <select class="form-select">
-                        <option value="John Doe">John Doe</option>
-                        <option value="Jane Doe">Jane Doe</option>
-                    </select>
+                    <h6>{{form.student.label}}</h6>
+                    {{form.student}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Instructors</h6>
-                    <select class="form-select">
-                        <option value="John Doe">John Doe</option>
-                        <option value="Jane Doe">Jane Doe</option>
-                    </select>
+                    <h6>{{form.instructor.label}}</h6>
+                    {{form.instructor}}
                 </div>
     
                 <div class="col-6 mt-3">
-                    <h6>Remarks</h6>
-                    <textarea class="form-control" placeholder="remarks"></textarea>
+                    <h6>{{form.remarks.label}}</h6>
+                    {{form.remarks}}
                 </div>
             </form>
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-dark">Save</a>
+           <button class="btn btn-dark" form="enrollform">Save</button>
         </div>
       </div>
 </div>

@@ -29,38 +29,41 @@
         </div>
         <div class="card-body">
             <i class="bi bi-journals"></i> Schedule Information<hr>
-            <form class="row">
+            <form class="row" method="POST" id="myform">
+
+                {% csrf_token %}
                 <div class="col-6">
-                    <h6>Schedule Code</h6>
-                    <input type="text" class="form-control" disabled placeholder="SCHD-123">
+                    <h6>{{form.schedule_code.label}}</h6>
+                    {{form.schedule_code}}
                 </div>
                 <div class="col-6">
-                    <h6>Date</h6>
-                    <input type="date" class="form-control">
+                    <h6>{{form.schedule_date.label}}</h6>
+                    {{form.schedule_date}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Instructor</h6>
-                    <select class="form-select">
-                        <option value="John Doe">John Doe</option>
-                        <option value="Jane Doe">Jane Doe</option>
-                    </select>
+                    <h6>{{form.instructor.label}}</h6>
+                    {{form.instructor}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Number of Slots</h6>
-                    <input type="text" class="form-control" placeholder="slots">
+                    <h6>{{form.course.label}}</h6>
+                    {{form.course}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Amount</h6>
-                    <input type="text" class="form-control" placeholder="amount">
+                    <h6>{{form.slots.label}}</h6>
+                    {{form.slots}}
                 </div>
                 <div class="col-6 mt-3">
-                    <h6>Remarks</h6>
-                    <textarea class="form-control" placeholder="remarks"></textarea>
+                    <h6>{{form.price.label}}</h6>
+                   {{form.price}}
+                </div>
+                <div class="col-6 mt-3">
+                    <h6>{{form.remarks.label}}</h6>
+                   {{form.remarks}}
                 </div>
             </form>
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-dark">Save</a>
+            <button class="btn btn-dark" type="submit" form="myform">Save</button>
         </div>
       </div>
 </div>

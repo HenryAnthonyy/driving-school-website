@@ -1,0 +1,78 @@
+{% extends 'drivingschool/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    body{
+        background-color: #dce3eb;
+    }
+    .loginCard{
+        
+        display: grid;
+        place-items: center;
+        margin-top: 3%;
+        margin-bottom: 5%; 
+        
+    }
+    
+    .links a{
+        text-decoration: none;
+    }
+
+   
+    
+</style>
+
+<div class="loginCard">
+    <div class="card shadow">
+        <div class="card-body p-4">
+            <div class="card-logo text-center">
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+            
+            <div>
+                <h3 class="card-title text-center"><strong>Welcome back</strong></h3><hr>
+            <p class="card-text text-center ">Prestige Driving School Management System</p>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                
+                    <div class="row mb-3">
+                        <div class="mb-3">
+                            <h6>Username</h6>
+                            <input type="text" class="form-control" placeholder="Username" name="username">
+                        </div>
+                        <div >
+                            <h6>Password</h6>
+                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        </div>
+                        
+                    </div>
+                    
+                
+                <div class="d-grid">
+                    <button class="btn btn-sm btn-primary" type="submit">Login Now</button>
+                </div>
+            </form>
+            
+            {% for message in messages %}
+                <div class=" d-flex justify-content-center text-danger fst-italic">
+                    {{message}}
+                </div>
+
+            {% endfor %}
+
+            <div class=" links mt-3 d-flex justify-content-between mb-3">
+                <a href="register">Create an account</a>
+                <a href="login">Forgot Password</a>
+            </div>
+            </div>
+
+        
+        </div>
+    </div>
+</div>
+{% endblock %}
