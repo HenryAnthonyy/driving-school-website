@@ -22,5 +22,6 @@ urlpatterns = [
     path('',include('DrivingSchool.urls')),
     path('api/',include('api.urls')),
 
-    # path('api/instructors/', views.instructorView.as_view())
+    # path('accounts/', include('django.contrib.auth.urls')),
+
 ]

@@ -2,7 +2,7 @@ from dataclasses import fields
 from django import forms
 from django.forms import ModelForm, widgets
 from .models import *
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 
 
@@ -18,8 +18,25 @@ class RegisterUserForm(UserCreationForm):
             'email': forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Email Address'}),
             
         }
+class ProfileForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = '__all__'
 
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Username'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control','placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Last Name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Email Address'}),
+            
+        }
 
+class NewPasswordForm(PasswordChangeForm):
+    class Meta:
+        model = User
+        fields = ['old_password', 'new_password1','new_password2']
+
+       
 
 
 

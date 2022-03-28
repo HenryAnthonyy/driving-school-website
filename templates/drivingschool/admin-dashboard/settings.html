@@ -1,0 +1,182 @@
+{% extends 'drivingschool/admin-dashboard/main.html' %}
+
+
+
+{% block content %}
+
+<style>
+    .nav-tabs li a{
+        text-decoration : none;
+        margin: 50px;
+        color: gray;
+        
+    }
+    
+    .nav-tabs{
+        padding: 10px;
+    }
+    .text-labels{
+        color: rgb(71, 68, 68);
+    }
+
+</style>
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-end">
+            <div class="">
+                <h2>
+                    <span><i class="bi bi-gear"></i></span>
+                    Settings
+                </h2>
+                
+            </div>
+        
+            <!-- breadcrumbs -->
+            <div class="">
+                <ol class="breadcrumb float-sm-right">
+                   <li class="breadcrumb-item"><a href="/">Home</a></li>
+                   <li class="breadcrumb-item active">Settings</li>
+                </ol>
+             </div>
+             <!-- breadcrumbs -->
+        </div><hr>
+
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="#profile" data-bs-toggle="list" class="active show">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#system" data-bs-toggle="list">System</a>
+                            </li>
+                            <li>
+                                <a href="#security" data-bs-toggle="list">Security</a>
+                            </li>
+                        </ul>
+
+                      
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            
+                                <div class="tab-content" id="nav-tabContent">
+          
+                                  <!-- profile -->
+                                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="settings-profile">
+                                        <p class="mt-3 ms-4">Update your information here.</p><hr>
+                                      
+                                        <form action="" method="POST">
+                                            {% csrf_token %}   
+                                            <!-- {{form}}                                      -->
+                                            <div class="container">
+                                                <div class="row mb-3 text-labels">
+                                                    <div class="col-md-12 mb-4">
+                                                        <p>{{form.first_name.label}}</p>
+                                                        {{form.first_name}}
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <p>{{form.last_name.label}}</p>
+                                                        {{form.last_name}}
+                                                    </div>
+                                                    <div class="col-md-12 mb-4">
+                                                        <p>{{form.username.label}}</p>
+                                                        {{form.username}}
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12 mb-4"> 
+                                                        <p>{{form.email.label}}</p>
+                                                        {{form.email}}
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!-- <p>{{form.password1.label}}</p>
+                                                <input for="id_password1" type="password" class="form-control" placeholder="Password" name="password1">
+                                                <p>{{form.password2.label}}</p>
+                                                <input for="id_password2" type="password" class="form-control" placeholder="Confirm Password" name="password2">      -->
+                                            </div>
+                                            <div class="">
+                                                <button class="btn btn-sm btn-primary" type="button">Save changes</button>
+                                            </div>
+
+
+                                                <!-- Button trigger modal -->
+                                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Launch demo modal
+                                            </button> -->
+                                            
+                                            <!-- Modal -->
+                                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Enter password to confirm</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                      </form>
+          
+                                  </div>
+          
+                                  <!-- system -->
+                                  <div class="tab-pane fade" id="system" role="tabpanel" aria-labelledby="settings-system">...
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ab commodi maiores. Nisi rem eum eligendi tempore amet repellendus quaerat quibusdam eos facere totam. Aspernatur ab ipsum officia animi doloremque.</p>
+
+                                  </div>
+          
+                                  <!-- security -->
+                                  <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="settings-security">
+                                      <p class="mt-3 ms-4 text-muted">Update your password here.</p>
+
+                                      <form action="" method="POST">
+                                        {% csrf_token %}
+
+                                        <div class="container">
+                                            <div class="row mb-3 text-labels">
+                                                <div class="col mb-4">
+                                                    <p>{{pass_form.old_password.label}}</p>
+                                                    <input type="password" class="form-control" placeholder="Old password">
+                                                </div>
+                                                <div class="col-md-12 mb-4">
+                                                    <p>{{pass_form.new_password1.label}}</p>
+                                                    <input type="password" class="form-control" placeholder="New password">
+                                                </div>
+                                                <div class="col-md-12 mb-4">
+                                                    <p>{{pass_form.new_password2.label}}</p>
+                                                    <input type="password" class="form-control" placeholder="Confirm password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                            <button class="btn btn-sm btn-primary" type="submit">Save changes</button>
+                                        </div>
+
+                                        
+                                      </form>
+                                  </div>
+                                  
+                                </div>
+                              
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import *
 
+
 # Create your views here.
 
 @unauthenticated_user
@@ -53,9 +54,25 @@ def RegisterPage(request):
     return render(request, 'drivingschool/register.html', context)
 
 
+@admin_only
+def adminProfile(request, pk):
+    profile = User.objects.get(id=pk)
+    form = ProfileForm(instance=profile)
 
 
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
 
+    pass_form = NewPasswordForm(request.user)
+    # pass_form.set_password
+            
+
+
+    mydict = {'form': form, 'pass_form': pass_form}
+    return render(request, 'drivingschool/admin-dashboard/settings.html', mydict)
 
 
 
@@ -313,8 +330,6 @@ def updatePayment(request, pk):
 
 
 
-
-
 # student views
 @login_required(login_url='login')
 # @student_only
@@ -363,4 +378,6 @@ def addReport(request):
 @instructor_only
 def manageReport(request):
     return render(request, 'drivingschool/instructor-dashboard/manage-report.html')
+
+
 
